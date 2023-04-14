@@ -24,7 +24,7 @@ class ShoeSeeder extends Seeder
 
         $new_shoe->marca = $faker->word();
         $new_shoe->modello = $faker->word();
-        $new_shoe->prezzo = $faker->randomFloat(2);
+        $new_shoe->prezzo = $faker->randomFloat(2, 5, 999);
         $new_shoe->descrizione = $faker->paragraph();
         $new_shoe->immagine = "https://picsum.photos/400/400";
 
