@@ -2,34 +2,27 @@
 
 @section('content')
     <div class="container">
+      <h2 class="text-danger my-5">LISTA SCARPE</h2>
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">ID</th>
+            <th scope="col">marca</th>
+            <th scope="col">modello</th>
+            <th scope="col">prezzo</th>
           </tr>
         </thead>
         <tbody>
+          @foreach ($shoes as $shoe)
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{{$shoe->id}}</td>
+            <td>{{$shoe->marca}}</td>
+            <td>{{$shoe->modello}}</td>
+            <td>{{$shoe->prezzo}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
+      {{$shoes->links('pagination::bootstrap-5')}}
     </div>
 @endsection
