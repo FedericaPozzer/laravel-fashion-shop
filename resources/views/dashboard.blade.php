@@ -9,6 +9,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">{{ __('User Dashboard') }}</div>
+                
 
                 <div class="card-body">
                     @if (session('status'))
