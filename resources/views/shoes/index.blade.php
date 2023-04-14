@@ -10,6 +10,7 @@
             <th scope="col">marca</th>
             <th scope="col">modello</th>
             <th scope="col">prezzo</th>
+
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,10 @@
             <td>{{$shoe->marca}}</td>
             <td>{{$shoe->modello}}</td>
             <td>{{$shoe->prezzo}}</td>
+            <td>
+              <a href="{{ route('shoe.show', $project) }}"></a>
+            </td>
+
           </tr>
           @endforeach
         </tbody>

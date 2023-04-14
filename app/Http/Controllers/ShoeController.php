@@ -14,7 +14,7 @@ class ShoeController extends Controller
      */
     public function index()
     {
-        $shoes=Shoe::paginate(10);
+        $shoes = Shoe::paginate(10);
         return view('shoes.index', compact('shoes'));
     }
 
@@ -47,7 +47,7 @@ class ShoeController extends Controller
      */
     public function show(Shoe $shoe)
     {
-        //
+        return view('shoes.shoe', compact('shoe'));
     }
 
     /**
