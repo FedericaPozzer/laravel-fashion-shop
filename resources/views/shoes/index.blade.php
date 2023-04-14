@@ -10,6 +10,8 @@
             <th scope="col">marca</th>
             <th scope="col">modello</th>
             <th scope="col">prezzo</th>
+            <th scope="col">azioni</th>
+
 
           </tr>
         </thead>
@@ -21,7 +23,9 @@
             <td>{{$shoe->modello}}</td>
             <td>{{$shoe->prezzo}}</td>
             <td>
-              <a href="{{ route('shoe.show', $project) }}"></a>
+              <a href="{{ route('shoes.show', $shoe) }}">
+                <i class="bi bi-eye"></i>
+              </a>
             </td>
 
           </tr>
