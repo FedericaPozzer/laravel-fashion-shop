@@ -21,7 +21,7 @@ class ShoeController extends Controller
 
     public function dashboard()
     {
-        $shoes = Shoe::paginate(10);
+        $shoes = Shoe::paginate(16);
         return view('dashboard', compact('shoes'));
     }
 
