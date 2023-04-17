@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="container">
-      <h2 class="text-danger my-5">LISTA SCARPE</h2>
-      <a type="button" href="{{ route('shoes.create') }}">Aggiungi</a>
+      <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-danger my-5">LISTA SCARPE</h2>
+          <div>
+            <a type="button" class="btn btn-primary" href="{{ route('shoes.create') }}">Aggiungi</a>
+          </div>
+      </div>
       <table class="table">
         <thead>
           <tr>
@@ -22,7 +26,7 @@
             <td>{{$shoe->id}}</td>
             <td>{{$shoe->marca}}</td>
             <td>{{$shoe->modello}}</td>
-            <td>{{$shoe->prezzo}}</td>
+            <td>{{$shoe->prezzo}} €</td>
             <td>
               <a href="{{ route('shoes.show', $shoe) }}" class="text-decoration-none">
                 <i class="bi bi-eye"></i>
