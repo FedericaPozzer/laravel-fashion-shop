@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shoe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ShoeController extends Controller
 {
@@ -70,7 +71,10 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $shoe)
     {
-        //
+       
+        $data = $this->validation($request->all());
+        $shoe->update($data);
+        return redirect()->route("shoes.show", $shoe);
     }
 
     /**
@@ -83,4 +87,34 @@ class ShoeController extends Controller
     {
         //
     }
+
+    private function validation($data) {
+        return Validator::make(
+             $data,
+        [
+
+            "marca" => "required|string",
+            "modello" => "required|string",
+            "prezzo" => "required|numeric",
+            "immagine" => "string",
+            "descrizione" => "string",
+        ],
+        [
+            "marca.required" => "Inserisci la marca.",
+            "marca.string" => "Inserisci una stringa.",
+
+            "modello.required" => "Inserisci il modello.",
+            "modello.string" => "Inserisci una stringa.",
+
+            "prezzo.required" => "Inserisci il prezzo.",
+            "prezzo.numeric" => "Inserisci un numero.",
+
+            "immagine.string" => "Inserisci una stringa.",
+
+            "descrizione.string" => "Insersci una stringa.",
+        ]
+        )->validate();
+    }
 }
+
+
