@@ -19,6 +19,12 @@ class ShoeController extends Controller
         return view('shoes.index', compact('shoes'));
     }
 
+    public function dashboard()
+    {
+        $shoes = Shoe::paginate(10);
+        return view('dashboard', compact('shoes'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
