@@ -26,7 +26,7 @@ class ShoeController extends Controller
      */
     public function create()
     {
-        //
+        return view('shoes.create');
     }
 
     /**
@@ -37,7 +37,12 @@ class ShoeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validation($request->all());
+        $shoe = new Shoe;
+        $shoe->fill($data);
+        $shoe->save();
+
+        return redirect()->route('shoes.show', $shoe);
     }
 
     /**
@@ -71,7 +76,7 @@ class ShoeController extends Controller
      */
     public function update(Request $request, Shoe $shoe)
     {
-       
+
         $data = $this->validation($request->all());
         $shoe->update($data);
         return redirect()->route("shoes.show", $shoe);
@@ -88,33 +93,32 @@ class ShoeController extends Controller
         //
     }
 
-    private function validation($data) {
+    private function validation($data)
+    {
         return Validator::make(
-             $data,
-        [
+            $data,
+            [
 
-            "marca" => "required|string",
-            "modello" => "required|string",
-            "prezzo" => "required|numeric",
-            "immagine" => "string",
-            "descrizione" => "string",
-        ],
-        [
-            "marca.required" => "Inserisci la marca.",
-            "marca.string" => "Inserisci una stringa.",
+                "marca" => "required|string",
+                "modello" => "required|string",
+                "prezzo" => "required|numeric",
+                "immagine" => "string",
+                "descrizione" => "string",
+            ],
+            [
+                "marca.required" => "Inserisci la marca.",
+                "marca.string" => "Inserisci una stringa.",
 
-            "modello.required" => "Inserisci il modello.",
-            "modello.string" => "Inserisci una stringa.",
+                "modello.required" => "Inserisci il modello.",
+                "modello.string" => "Inserisci una stringa.",
 
-            "prezzo.required" => "Inserisci il prezzo.",
-            "prezzo.numeric" => "Inserisci un numero.",
+                "prezzo.required" => "Inserisci il prezzo.",
+                "prezzo.numeric" => "Inserisci un numero.",
 
-            "immagine.string" => "Inserisci una stringa.",
+                "immagine.string" => "Inserisci una stringa.",
 
-            "descrizione.string" => "Insersci una stringa.",
-        ]
+                "descrizione.string" => "Insersci una stringa.",
+            ]
         )->validate();
     }
 }
-
-

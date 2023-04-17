@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
       <h2 class="text-danger my-5">LISTA SCARPE</h2>
+      <a type="button" href="{{ route('shoes.create') }}">Aggiungi</a>
       <table class="table">
         <thead>
           <tr>
