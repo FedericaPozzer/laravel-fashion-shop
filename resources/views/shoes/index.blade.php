@@ -23,8 +23,11 @@
             <td>{{$shoe->modello}}</td>
             <td>{{$shoe->prezzo}}</td>
             <td>
-              <a href="{{ route('shoes.show', $shoe) }}">
+              <a href="{{ route('shoes.show', $shoe) }}" class="text-decoration-none">
                 <i class="bi bi-eye"></i>
+              </a>
+              <a href="{{ route('shoes.edit', $shoe) }}" class="text-decoration-none">
+                <i class="bi bi-pencil"></i>
               </a>
             </td>
 
